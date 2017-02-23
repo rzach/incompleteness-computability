@@ -1,0 +1,41 @@
+% phil379.tex
+%
+% driver file phil379.tex to produce text
+
+\preto\OLEndChapterHook{\IfFileExists{include/summary-\thechapter}
+        {\section*{Summary}\addcontentsline{toc}{section}{Summary}
+        \let\emph\textbf\input{include/summary-\thechapter}\let\emph\textit}{}}
+
+\problemsperchapter
+
+\include{phil479-frontmatter}
+
+\pagestyle{leadbeater}
+
+\include{phil479-incompleteness-intro}
+
+\include{phil479-recursive-functions}
+
+\include{phil479-arithmetization-syntax}
+
+\include{phil479-representability-in-q}
+
+\include{phil479-incompleteness-provability}
+
+\appendix
+
+\let\intro\comment
+\let\endintro\endcomment
+
+\include{phil479-review}
+
+\stopproblems
+\def\ifproblems#1{}
+
+\def\captionnamefont{\sffamily\color{leadbeater}}
+\def\captiontitlefont{\sffamily\color{leadbeater}}
+
+\def\figurename{Fig.}
+\setlength{\olphotowidth}{.45\textwidth}
+
+\include{phil479-biographies}
