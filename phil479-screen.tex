@@ -72,17 +72,18 @@
 
 \makeatletter
 
-\definecolor{leadbeater}{RGB}{248,154,14}
-\definecolor{dkleadbeater}{RGB}{104,65,6}
-\definecolor{ltleadbeater}{RGB}{248,203,137}
+%\definecolor{leadbeater}{RGB}{0,128,128}
+\definecolor{leadbeater}{RGB}{0,179,179}
+\definecolor{dkleadbeater}{RGB}{0,70,70}
+\definecolor{ltleadbeater}{RGB}{153,255,255}
 \newlength{\barlength}
 \makechapterstyle{leadbeater}{%
   \setlength{\afterchapskip}{40pt}
   \setlength{\beforechapskip}{50pt}
     \setlength{\midchapskip}{10pt}
   \renewcommand*{\afterchapternum}{\par\nobreak\vskip 0pt}
-  \renewcommand*{\chapnamefont}{\fontsize{14pt}{0pt}\selectfont\bfseries\sffamily}
-  \renewcommand*{\chapnumfont}{\fontsize{14pt}{0pt}\selectfont\bfseries\sffamily}
+  \renewcommand*{\chapnamefont}{\fontsize{14pt}{0pt}\selectfont\sffamily\bfseries}
+  \let\chapnumfont\chapnamefont
   \renewcommand*{\chaptitlefont}{\normalfont\fontsize{48pt}{48pt}\selectfont\bfseries\itshape\color{leadbeater}}
   \renewcommand*{\printchaptername}{%
     \chapnamefont\MakeUppercase{\@chapapp}}
@@ -110,8 +111,6 @@
 \makeevenhead{leadbeater}{\small\sffamily\color{leadbeater}\leftmark}{}
             {\color{leadbeater}\sffamily\bfseries\thepage}
 
-\usepackage{atbegshi}  % to kill the blank page after the titling page
-
 \usepackage[font={small,it}]{caption}
 
 
@@ -134,10 +133,11 @@
 % colors for links
 
 \hypersetup{
+colorlinks,
   allcolors=dkleadbeater,
 %  citecolor=dkleadbeater,
 %  urlcolor=dkleadbeater,
-  pdftitle={Sets, Logic, Computation},
+  pdftitle={Incompleteness and Computability},
   pdfauthor = {Open Logic Project}
 }
 

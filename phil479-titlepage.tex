@@ -1,8 +1,7 @@
-\AtBeginShipoutNext{\AtBeginShipoutNext{\AtBeginShipoutDiscard}}
-% gets rid of empty page after title page
 
-\begin{titlingpage}
-  \pagecolor{leadbeater}
+\thispagestyle{empty}
+
+\pagecolor{leadbeater}
   \begin{textblock*}{14cm}(2cm,2cm)%
     \begin{raggedright}
       \fontsize{32pt}{34pt}\selectfont\bfseries\sffamily%
@@ -12,22 +11,29 @@
       An Open Logic Text
     \end{raggedright}
 
-%\vskip1cm\hskip-1cm\includegraphics[scale=.85]{illustrations/Cover}
+\vskip1cm
 
+\noindent\includegraphics[width=.3\textwidth]{\olpath/assets/portraits/goedel-circle.pdf}
+\includegraphics[width=.29\textwidth]{\olpath/assets/portraits/peter-circle.pdf}\\
+\centerline{\includegraphics[width=.29\textwidth]{\olpath/assets/portraits/church-circle.pdf}
+\includegraphics[width=.29\textwidth]{\olpath/assets/portraits/tarski-circle.pdf}}
 
-    
-\par\noindent
-\vskip 15cm
+\hfill\includegraphics[width=.29\textwidth]{\olpath/assets/portraits/robinson-circle.pdf}
+\includegraphics[width=.29\textwidth]{\olpath/assets/portraits/kleene-circle.pdf}
+
+\vskip1cm
 
 \noindent
 \includegraphics[width=1cm]{assets/cc.pdf}
 \includegraphics[width=1cm]{assets/by.pdf}
 \includegraphics[width=1cm]{assets/remix.pdf}
 \normalfont\fontsize{16pt}{0pt}\selectfont\bfseries\sffamily%
-\hfill Winter 2017% \textit{bis}
+\hfill Spring 2017% \textit{bis}
 \end{textblock*}
 \
-\end{titlingpage}
 
+\clearpage
+\setcounter{page}{1}
 \nopagecolor
+
 

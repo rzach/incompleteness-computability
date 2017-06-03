@@ -7,27 +7,335 @@
         \let\emph\textbf\input{include/summary-\thechapter}\let\emph\textit}{}}
 
 \problemsperchapter
+\allowdisplaybreaks
 
-\include{phil479-frontmatter}
+\frontmatter
 
+% bastard title
+
+\pagestyle{empty}
+
+\vspace*{100pt}
+
+\begin{raggedleft}
+
+{\fontsize{24pt}{24pt}\selectfont\bfseries\sffamily%
+Incompleteness and
+Computability}
+
+\end{raggedleft}
+
+
+\newpage
+
+% editorial board
+
+\vspace*{100pt}
+
+{\bfseries\itshape The Open Logic Project}
+
+\bigskip
+
+\textbf{\color{leadbeater}Instigator}
+
+\medskip
+
+Richard Zach, \emph{University of Calgary}
+
+\bigskip
+
+\textbf{\color{leadbeater}Editorial Board}
+
+\medskip
+
+Aldo Antonelli,$^\dagger$ \emph{University of California, Davis}
+
+Andrew Arana, \emph{Universit\'e Paris I Panth\'enon--Sorbonne}
+
+Jeremy Avigad, \emph{Carnegie Mellon University}
+
+Walter Dean, \emph{University of Warwick}
+
+Gillian Russell, \emph{University of North Carolina}
+
+Nicole Wyatt, \emph{University of Calgary}
+
+Audrey Yap, \emph{University of Victoria}
+
+\bigskip
+
+\textbf{\color{leadbeater}Contributors}
+
+\medskip
+
+Samara Burns, \emph{University of Calgary}
+
+Dana H\"agg, \emph{University of Calgary}
+
+\newpage
+
+% title
+
+\vspace*{100pt}
+
+\begin{raggedleft}
+
+{\fontsize{24pt}{24pt}\selectfont\bfseries\sffamily%
+  Incompleteness and Computability}
+
+\smallskip
+
+{\fontsize{18pt}{18pt}\selectfont\bfseries\itshape An Open Logic Text}
+
+\vspace{100pt}
+
+\fontsize{14pt}{14pt}\selectfont Remixed by Richard Zach
+
+\vfill
+
+\textsc{Spring 2017} %\textit{bis}
+
+\end{raggedleft}
+
+
+\newpage
+
+% credits
+
+\noindent
+The Open Logic Project would like to acknowledge the generous support
+of the \href{http://arts.ucalgary.ca/}{Faculty of Arts} and
+the \href{http://www.ucalgary.ca/taylorinstitute/}{Taylor Institute of
+Teaching and Learning} of the University of Calgary,
+and the \href{http://albertaoer.com}{Alberta Open Educational Resources
+(ABOER) Initiative}, which is made possible through an investment from
+the Alberta government.
+
+
+
+\bigskip
+
+\noindent\includegraphics[height=1cm]{assets/ucarts-color}
+
+\medskip
+
+\noindent\includegraphics[height=1cm]{assets/ti-color}
+
+\medskip
+
+\noindent\includegraphics[width=4cm]{assets/aboer-color}
+
+\vfill
+
+\noindent Cover illustrations by \href{http://mattleadbeater.com}{Matthew
+  Leadbeater}, used under a
+\href{http://creativecommons.org/licenses/by-nc/4.0/}{Creative Commons
+  Attribution-NonCommercial 4.0 International License}.
+
+\vfill
+
+\noindent Typeset in Baskervald X and Universalis ADF Standard by
+\LaTeX.
+
+\vfill
+
+\noindent This version of \texttt{phil479} is revision \gitAbbrevHash{}
+(\gitAuthorDate), with content generated
+from \texttt{OpenLogicProject} revision
+\input{olprevision}
+
+\vfill
+
+% oluselicense generates a license mark that a) licenses the result
+% under a CC-BY licence and b) acknowledges the original source (the
+% OLP).  Acknowledgment of the source is a requirement under the
+% conditions of the CC-BY license used by the OLP, but you are not
+% required to license the product itself under CC-BY.
+
+\renewcommand{\ollicensefont}{\fontsize{8.5pt}{11pt}\selectfont}
+
+\noindent
+\oluselicense
+% Title of this version of the OLT with link to source
+{\href{https://github.com/rzach/phil479}{\textit{Incompleteness and
+Computability}}}
+% Author of this version
+{\href{http://richardzach.org/}{Richard Zach}}
+
+\newpage
+\pagestyle{leadbeater}
+\currentpdfbookmark{Table of Contents}{name}
+\tableofcontents*
+
+%\input{include/preface}
+
+\mainmatter
 \pagestyle{leadbeater}
 
-\include{phil479-incompleteness-intro}
+\olimport*[incompleteness/introduction]{introduction}
 
-\include{phil479-recursive-functions}
+\olimport*[computability/recursive-functions]{recursive-functions}
 
-\include{phil479-arithmetization-syntax}
+\olimport*[incompleteness/arithmetization-syntax]{arithmetization-syntax}
 
-\include{phil479-representability-in-q}
+\olimport*[incompleteness/representability-in-q]{representability-in-q}
 
-\include{phil479-incompleteness-provability}
+\olimport*[incompleteness/incompleteness-provability]{incompleteness-provability}
+
+\chapter{Models of Arithmetic}
+
+\olimport*[model-theory/models-of-arithmetic]{introduction}
+
+\olimport*[model-theory/basics]{reducts-and-expansions}
+
+\olimport*[model-theory/basics]{isomorphism}
+
+\olimport*[model-theory/basics]{theory-of-m}
+
+\olimport*[model-theory/models-of-arithmetic]{standard-models}
+
+\olimport*[model-theory/models-of-arithmetic]{non-standard-models}
+
+\olimport*[model-theory/models-of-arithmetic]{models-of-q}
+
+\olimport*[model-theory/models-of-arithmetic]{models-of-pa}
+
+\olimport*[model-theory/models-of-arithmetic]{computable-models}
+
+\OLEndChapterHook
+
+\chapter{Second-Order Logic}
+
+\olimport*[second-order-logic/syntax-and-semantics]{introduction}
+
+\let\oldolsection\olsection
+\let\olsection\nosection
+\olimport*[second-order-logic/sol-and-set-theory]{introduction}
+\let\olsection\oldolsection
+
+\olimport*[second-order-logic/syntax-and-semantics]{terms-formulas}
+
+\olimport*[second-order-logic/syntax-and-semantics]{satisfaction}
+
+\olimport*[second-order-logic/syntax-and-semantics]{semantic-notions}
+
+\olimport*[second-order-logic/syntax-and-semantics]{expressive-power}
+
+\olimport*[second-order-logic/syntax-and-semantics]{inf-count}
+
+\olimport*[second-order-logic/metatheory]{second-order-arithmetic}
+
+\olimport*[second-order-logic/metatheory]{undecidability-and-axiomatizability}
+
+\olimport*[second-order-logic/metatheory]{compactness}
+
+\olimport*[second-order-logic/metatheory]{loewenheim-skolem}
+
+\olimport*[second-order-logic/sol-and-set-theory]{comparing-sets}
+
+\olimport*[second-order-logic/sol-and-set-theory]{cardinalities}
+
+\olimport*[second-order-logic/sol-and-set-theory]{power-of-continuum}
+
+\OLEndChapterHook
 
 \appendix
 
 \let\intro\comment
 \let\endintro\endcomment
 
-\include{phil479-review}
+\chapter{First-order Logic}
+
+\olimport*[first-order-logic/syntax-and-semantics]{first-order-languages}
+
+\olimport*[first-order-logic/syntax-and-semantics]{terms-formulas}
+
+\olimport*[first-order-logic/syntax-and-semantics]{free-vars-sentences}
+
+\olimport*[first-order-logic/syntax-and-semantics]{substitution}
+
+\olimport*[first-order-logic/syntax-and-semantics]{structures}
+
+\olimport*[first-order-logic/syntax-and-semantics]{satisfaction}
+
+\olimport*[first-order-logic/syntax-and-semantics]{semantic-notions}
+
+\section{Theories}
+
+\begin{defn}
+A set of !!{sentence}s~$\Gamma$ is \emph{closed} iff, whenever
+$\Gamma \Entails !A$ then $!A \in \Gamma$.  The \emph{closure} of a set
+of !!{sentence}s~$\Gamma$ is $\Setabs{!A}{\Gamma \Entails !A}$.
+
+We say that~$\Gamma$ is \emph{axiomatized by} a set of
+sentences~$\Delta$ if $\Gamma$ is the closure of~$\Delta$
+\end{defn}
+
+\begin{ex}
+The theory of strict linear orders in the language~$\Lang L_<$ is
+axiomatized by the set
+\begin{align*}
+& \lforall[x][\lnot x < x], \\
+& \lforall[x][\lforall[y][((x < y \lor y <
+    x) \lor x = y)]], \\
+& \lforall[x][\lforall[y][\lforall[z][((x < y
+      \land y < z) \lif x < z)]]]
+\end{align*}
+It completely captures the intended !!{structure}s: every strict
+linear order is a model of this axiom system, and vice versa, if $R$
+is a linear order on a set $X$, then the structure $\Struct M$ with
+$\Domain M = X$ and $\Assign{<}{M} = R$ is a model of this theory.
+\end{ex}
+
+\begin{ex}
+The theory of groups in the language $\Obj 1$ (!!{constant}), $\cdot$
+(two-place !!{function}) is axiomatized by
+\begin{align*}
+& \lforall[x][(x \cdot \Obj 1) = x]\\
+& \lforall[x][\lforall[y][\lforall[z][\eq[(x \cdot (y \cdot z))][((x
+          \cdot y) \cdot z)]]]]\\
+& \lforall[x][\lexists[y][(x \cdot y) = \Obj 1]]
+\end{align*}
+\end{ex}
+
+\begin{ex}
+The theory of Peano arithmetic is axiomatized by the following
+sentences in the language of arithmetic~$\Lang L_A$.
+\begin{align*}
+& \lnot\lexists[x][x' = \Obj 0]\\
+& \lforall[x][\lforall[y][(x' = y' \lif x = y)]]\\
+& \lforall[x][\lforall[y][(x < y \liff \lexists[z][(x + z' = y)])]]\\
+& \lforall[x][\eq[(x + \Obj 0)][x]]\\
+& \lforall[x][\lforall[y][\eq[(x + y')][(x + y)']]]\\
+& \lforall[x][\eq[(x \times \Obj 0)][\Obj 0]]\\
+& \lforall[x][\lforall[y][\eq[(x \times y')][((x \times y) + x)]]]\\
+\intertext{plus all sentences of the form}
+& (!A(\Obj 0) \land \lforall[x][(!A(x) \lif !A(x'))]) \lif \lforall[x][!A(x)]
+\end{align*}
+Since there are infinitely many sentences of the latter form, this
+axiom system is infinite.  The latter form is called the
+\emph{induction schema}. (Actually, the induction schema is a bit more
+complicated than we let on here.)
+
+The third axiom is an \emph{explicit definition} of~$<$.
+\end{ex}
+
+\OLEndChapterHook
+
+\chapter{Natural Deduction}
+
+\olimport*[first-order-logic/natural-deduction]{introduction}
+
+\olimport*[first-order-logic/natural-deduction]{rules-and-proofs}
+
+\olimport*[first-order-logic/natural-deduction]{proving-things}
+
+\olimport*[first-order-logic/natural-deduction]{identity}
+
+\olimport*[first-order-logic/natural-deduction]{proof-theoretic-notions}
+
+\OLEndChapterHook
+
 
 \stopproblems
 \def\ifproblems#1{}
@@ -38,4 +346,26 @@
 \def\figurename{Fig.}
 \setlength{\olphotowidth}{.45\textwidth}
 
-\include{phil479-biographies}
+\chapter{Biographies}
+
+\olimport*[history/biographies]{alonzo-church}
+
+\olimport*[history/biographies]{kurt-goedel}
+
+\olimport*[history/biographies]{rozsa-peter}
+
+\olimport*[history/biographies]{julia-robinson}
+
+\olimport*[history/biographies]{alfred-tarski}
+
+\backmatter
+
+\clearpage
+\photocredits
+
+\bibliographystyle{\olpath/bib/natbib-oup}
+
+\bibliography{\olpath/bib/open-logic.bib}
+
+\olimport*{\olpath/content/open-logic-about}
+
