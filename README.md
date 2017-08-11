@@ -11,8 +11,8 @@ and Computability_, which in turn requires the _[Open Logic
 Text](http://github.com/OpenLogicProject/OpenLogic/)_.
 
 You can [download the
-PDF](http://builds.openlogicproject.org/courses/phil479-screen.pdf)
-frome the [Open Logic builds
+PDF](http://builds.openlogicproject.org/courses/phil479/phil479-screen.pdf)
+from the [Open Logic builds
 site](http://builds.openlogicproject.org/).
 
 To install and compile:
