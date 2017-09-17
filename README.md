@@ -1,6 +1,8 @@
 # phil479
 # Incompleteness and Computability
 
+![Book Cover](http://builds.openlogicproject.org/courses/phil479/phil479.png)\ 
+
 Textbook for Calgary's Logic III course based on the Open Logic
 Project.  Covers recursive function theory, Gödel's incompleteness
 theorem, models of arithmetic, and second-order logic.
@@ -13,7 +15,7 @@ Text](http://github.com/OpenLogicProject/OpenLogic/)_.
 You can [download the
 PDF](http://builds.openlogicproject.org/courses/phil479/phil479-screen.pdf)
 from the [Open Logic builds
-site](http://builds.openlogicproject.org/).
+site](http://builds.openlogicproject.org/), or order a hardcopy from [Amazon](https://www.amazon.com/dp/1548138088/) [[CA](https://www.amazon.ca/dp/1548138088/)] [[UK](https://www.amazon.co.uk/dp/1548138088/)] [[DE](https://www.amazon.de/dp/1548138088/)].
 
 To install and compile:
 
