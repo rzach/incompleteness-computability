@@ -20,24 +20,32 @@ site](http://builds.openlogicproject.org/), or order a hardcopy from [Amazon](ht
 To install and compile:
 
 - Download/install the _Open Logic Text_ from
-  [GitHub](http://github.com/OpenLogicProject/OpenLogic/)
+  [GitHub](http://github.com/OpenLogicProject/OpenLogic/), including
+  [photos](https://github.com/OpenLogicProject/photos) if you want those.
 - Navigate to the subdirectory `courses/`
 - Put the content of this repository into a subdirectory of it, say
   `courses/phil479`.
 
 If you use `git`, this should do it:
-
-- `# git clone https://github.com/OpenLogicProject/OpenLogic.git`
-- `# cd OpenLogic/courses`
-- `# git clone https://github.com/rzach/phil479.git`
-
+```
+# git clone https://github.com/OpenLogicProject/OpenLogic.git
+# cd OpenLogic/courses
+# git clone https://github.com/rzach/phil479.git
+# cd ../assets
+# git clone https://github.com/OpenLogicProject/photos.git
+```
 Inside `courses/phil479`, you can now compile:
+```
+# pdflatex phil479-screen
+```
+or just `# make` if you have `latexmk` installed. (You'll also have to
+do `makeglossaries phil479-screen` to get the glossary, and `bibtex
+phil479-screen` for the bibliography.)
 
-- `# cd phil479`
-- `# pdflatex phil479-screen` or just `# make` if you have `latexmk`
-  installed. (You'll also have to do `makeglossaries phil479-screen`
-  to get the glossary, and `bibtex phil479-screen` for the
-  bibliography.)
+The file `phil479-screen.tex` produces a color version of the text
+with smaller margins for screen reading. `phil479-print` produces a
+black-and-white version designed for printing on Crown Quarto stock
+(without cover).
 
 The file loads `phil479.tex`, which contains the actual material. It
 in turn includes other files, most of them from the `OpenLogic`
