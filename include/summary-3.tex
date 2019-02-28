@@ -6,19 +6,20 @@ not with formulas or !!{derivation}s.  The solution to this problem is
 to define a systematic mapping from !!{formula}s and derivations to
 numbers. The number associated with !!a{formula} or a !!{derivation}
 is called its \textbf{G\"odel number}.  If $!A$ is !!a{formula},
-$\Gn{!A}$ is its G\"odel number. By defining the G\"odel numbers in a
-suitable way, we can show that a whole lot of important operations on
-and properties of !!{formula}s and !!{derivation}s turn into primitive
-recursive functions and relations on the respective G\"odel
+$\Gn{!A}$ is its G\"odel number. We showed that important operations on
+!!{formula}s turn into primitive
+recursive functions on the respective G\"odel
 numbers. For instance, $\Subst{!A}{t}{x}$, the operation of
 substituting a term~$t$ for every free occurrence of~$x$ in~$!A$,
 corresponds to an arithmetical function $\fn{subst}(n,m,k)$ which, if
 applied to the G\"odel numbers of $!A$, $t$, and $x$, yields the
 G\"odel number of~$\Subst{!A}{t}{x}$. In other words,
-$\fn{subst}(\Gn{!A}, \Gn{t}, \Gn{x}) =
-\Gn{\Subst{!A}{t}{x}}$. Likewise, the property $\fn{Deriv}(n)$ that
-holds of~$n$ if it is the G\"odel number of a correct !!{derivation}
-in natural deduction, is primitive recursive.  Showing that these are
+$\fn{subst}(\Gn{!A}, \Gn{t}, \Gn{x}) = \Gn{\Subst{!A}{t}{x}}$.
+Likewise, properties of !!{derivation}s
+turn into primitive recursive relations on the respective G\"odel
+numbers.  In particular, the property $\fn{Deriv}(n)$ that holds
+of~$n$ if it is the G\"odel number of a correct !!{derivation} in
+natural deduction, is primitive recursive.  Showing that these are
 primitive recursive required a fair amount of work, and at times some
 ingenuity, and depended essentially on the fact that operating with
 sequences is primitive recursive.  If a theory~$\Th{T}$ is
