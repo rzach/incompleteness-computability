@@ -1,6 +1,6 @@
 .PHONY: FORCE_MAKE
 
-all: phil479-screen.pdf phil479-print.pdf
+all: phil479-screen.pdf phil479-print.pdf phil479-print-cover.pdf index.html
 
 print: phil479-print.pdf
 
