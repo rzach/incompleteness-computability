@@ -1,6 +1,6 @@
-% phil479-print.tex
+% ic-print.tex
 
-% driver file phil479-print.tex to produce the Logic III textbook for
+% driver file ic-print.tex to produce the Logic III textbook for
 % printing on KDPs's quarto stock.
 
 \documentclass[print]{../../sty/open-logic-book}
@@ -8,11 +8,11 @@
 %\usepackage[nonumberlist,toc,style=index]{glossaries}
 %\makeglossaries
 
-\def\oljobname{phil479}
+\def\oljobname{ic}
 
 % \olpath has to point to the location of the OLP main
 % directory/folder.  We're compiling from subdirectory
-% courses/phil379/, so the main directory is two
+% courses/incompleteness-computability/, so the main directory is two
 % levels up.
 
 \newcommand{\olpath}{../../}
@@ -22,7 +22,7 @@
 
 \input{\olpath/sty/open-logic.sty}
 
-\input{phil479-metadata}
+\input{ic-metadata}
 
 % we want all the problems deferred to the very end
 
@@ -40,7 +40,7 @@
 
 % Now load the actual text
 
-\input{phil479}
+\input{ic}
 
 \end{document}
 

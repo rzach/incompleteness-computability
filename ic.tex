@@ -1,6 +1,6 @@
-% phil479.tex
+% ic.tex
 %
-% driver file phil479.tex to produce text
+% driver file ic.tex to produce text
 
 \preto\OLEndChapterHook{\IfFileExists{include/summary-\thechapter}
         {\section*{Summary}\addcontentsline{toc}{section}{Summary}
@@ -224,16 +224,12 @@ The third axiom is an \emph{explicit definition} of~$<$.
 
 \OLEndChapterHook
 
-\input{phil479-derivations}
+\input{ic-derivations}
 
 \stopproblems
 \def\ifproblems#1{}
 
-\def\captionnamefont{\sffamily\color{leadbeater}}
-\def\captiontitlefont{\sffamily\color{leadbeater}}
-
 \def\figurename{Fig.}
-\setlength{\olphotowidth}{.45\textwidth}
 
 \chapter{Biographies}
 
@@ -253,8 +249,6 @@ The third axiom is an \emph{explicit definition} of~$<$.
 \photocredits
 
 \bibliographystyle{\olpath/bib/natbib-oup}
-
 \bibliography{\olpath/bib/open-logic.bib}
 
 \olimport*{\olpath/content/open-logic-about}
-
