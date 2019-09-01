@@ -28,7 +28,7 @@ To install and compile:
   [photos](https://github.com/OpenLogicProject/photos) if you want those.
 - Navigate to the subdirectory `courses/`
 - Put the content of this repository into a subdirectory of it, say
-  `courses/phil479`.
+  `courses/incompleteness-computability`.
 
 If you use `git`, this should do it:
 ```
