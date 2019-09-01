@@ -2,7 +2,7 @@
 
 ![Book Cover](https://ic.openlogicproject.org/ic.png)
 
-Textbook on G\"odel's incompleteness theorems and computability
+Textbook on Gödel's incompleteness theorems and computability
 theory, developed for Calgary's Logic III course, based on the Open
 Logic Project.  Covers recursive function theory, arithmetization of
 syntax, the first and second incompleteness theorem, models of
