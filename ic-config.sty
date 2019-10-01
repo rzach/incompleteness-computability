@@ -8,7 +8,7 @@
 
 \DeclareMathAlphabet{\mathbi}{OT1}{pplx}{b}{it}
 
-\DeclareDocumentCommand \Struct { m }{\mathbi #1}
+\DeclareDocumentCommand \Struct { m }{\applytofirst{\mathbi}{#1}}
 
 % - `\TMblank` - symbol for a blank
 \DeclareDocumentMacro \TMblank {\sqcup}
