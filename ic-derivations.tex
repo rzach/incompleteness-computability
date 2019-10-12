@@ -47,10 +47,10 @@ hypothesis.
 \end{prooftree}
 \end{proof}
 
-In \olref[inc][req][min]{lem:less}, we showed that $\Th{Q} \Proves
+In \olref[inc][req][min]{lem:less-zero}, we showed that $\Th{Q} \Proves
 \lforall[x][\lnot x < \Obj 0]$. What does an actual derivation look like?
 
-\begin{proof}[Proof of {\olref[inc][req][min]{lem:less}}]
+\begin{proof}[Proof of {\olref[inc][req][min]{lem:less-zero}}]
 To prove a universal claim like this, we use $\Intro\lforall$, which
 requires a derivation of $\lnot a < \Obj 0$. Looking at axiom $Q_8$,
 this means proving $\lnot \exists z (z' + a) = \Obj 0$. Specifically,
@@ -103,43 +103,18 @@ a constant for the existentially quantified variable and use
 Now the task is to fill in $\delta_2$, i.e., prove $\lfalse$ from
 $(b'+a) = \Obj 0$ and the axioms of~$\Th{Q}$. $Q_2$ says that $\Obj 0$
 can't be the successor of some number, so one way of doing that would
-be to show that $(b' + a)$ is equal to the successor of some
-number. Since that expression itself is a sum, the axioms for addition
-must come into play. If $\eq[a][\Obj 0]$, $Q_5$ would tell us that
-$\eq[(b' + a)][b']$, i.e., $b' + a$ is the successor of some number,
-namely of~$b$. On the other hand, if $\eq[a][c']$ for some $c$, then
+be to show that $(b' + a)$ is equal to the successor of some number.
+Since that expression itself is a sum, the axioms for addition must
+come into play. If $\eq[a][\Obj 0]$, $Q_5$ would tell us that $\eq[(b'
++ a)][b']$, i.e., $b' + a$ is the successor of some number, namely
+of~$b$. On the other hand, if $\eq[a][c']$ for some $c$, then
 $\eq[(b'+a)][(b'+c')]$ by \Elim\eq, and $\eq[(b'+c')][(b'+c)']$
 by~$Q_6$. So again, $b'+a$ is the successor of a number---in this
 case, $b'+c$. So the strategy is to divide the task into these two
 cases. We also have to verify that $\Th{Q}$ proves that one of these
-cases holds, i.e., $\Th{Q} \Proves a = 0 \lor \lexists[y][(a =
-  y')]$. This can be proved from axiom~$Q_8$:
-\begin{prooftree}\footnotesize
-  \AxiomC{$\Discharge{\lnot (a = 0 \lor \lexists[y][a = y'])}{4}$}
-  \AxiomC{$\lforall[x][(\lnot x=0 \lif  \lexists[y][x = y'])]$}
-    \RightLabel{\Elim\forall}
-    \UnaryInfC{$\lnot a = 0 \lif \lexists[y][a = y']$}
-  \AxiomC{$\Discharge{\lnot (a = 0 \lor \lexists[y][a = y'])}{4}$}
-  \AxiomC{$\Discharge{a=0}{5}$}
-  \RightLabel{\Intro\lor}
-  \UnaryInfC{$a = 0 \lor \lexists[y][a = y']$}
-    \insertBetweenHyps{\hskip -.1em}
-  \RightLabel{\Elim\lnot}
-    \BinaryInfC{$\lfalse$}
-    \DischargeRule{\Intro\lnot}{5}
-    \UnaryInfC{$\lnot a = 0$}
-        \insertBetweenHyps{\hskip -.5em}
-    \RightLabel{\Elim\lif}
-    \BinaryInfC{$\lexists[y][a = y']$}
-  \RightLabel{\Intro\lor}
-  \UnaryInfC{$a = 0 \lor \lexists[y][a = y']$}
-  \insertBetweenHyps{\hskip -3.5em}
-  \RightLabel{\Elim\lnot}
-  \BinaryInfC{$\lfalse$}
-  \DischargeRule{\FalseCl}{4}
-  \UnaryInfC{$a = 0 \lor \lexists[y][a = y']$}
-\end{prooftree}
-Call this derivation~$\delta_3$. Here are the two cases:
+cases holds, i.e., $\Th{Q} \Proves a = 0 \lor \lexists[y][(a = y')]$,
+but this follows directly from $Q_3$ by \Elim\lforall. Here are the
+two cases:
 
 Case 1: Prove $\lfalse$ from $\eq[a][\Obj 0]$ and $\eq[(b'+a)][\Obj
   0]$ (and axioms $Q_2$, $Q_5$):
@@ -161,7 +136,7 @@ Case 1: Prove $\lfalse$ from $\eq[a][\Obj 0]$ and $\eq[(b'+a)][\Obj
   \RightLabel{\Elim\lnot}
   \BinaryInfC{$\lfalse$}
 \end{prooftree}
-Call this derivation~$\delta_4$. (We've abbreviated the derivation of
+Call this derivation~$\delta_3$. (We've abbreviated the derivation of
 $\Obj 0 = (b' + \Obj 0)$ from $(b' + \Obj 0) = \Obj 0$ by a double
 inference line.)
 
@@ -175,6 +150,7 @@ derive $\lfalse$ from $\eq[a][c']$ and $\eq[(b'+a)][\Obj 0]$.
   \AxiomC{$a = c'$}
   \AxiomC{$(b'+a) = \Obj 0$}
   \RightLabel{\Elim=}
+          \insertBetweenHyps{\hskip -.3em}
   \BinaryInfC{$\Obj (b'+c') = \Obj 0$}
   \AxiomC{$\lforall[x][\lforall[y][(x+y') = (x+y)']]$}
   \RightLabel{\Elim\lforall}
@@ -182,16 +158,18 @@ derive $\lfalse$ from $\eq[a][c']$ and $\eq[(b'+a)][\Obj 0]$.
   \RightLabel{\Elim\lforall}
   \UnaryInfC{$(b' + c') = (b'+c)'$}
   \RightLabel{\Elim=}
+        \insertBetweenHyps{\hskip .5em}
   \BinaryInfC{$\Obj 0 = (b' + c)'$}
   \RightLabel{\Elim\lnot}
+          \insertBetweenHyps{\hskip -.5em}
   \BinaryInfC{$\lfalse$}
 \end{prooftree}
-Call this $\delta_5$. We get the required derivation $\delta_6$ by
+Call this $\delta_4$. We get the required derivation $\delta_5$ by
 applying $\Elim\lexists$ and discharging the assumption $\eq[a][c']$:
 \begin{prooftree}
   \AxiomC{$\lexists[y][a=y']$}
   \AxiomC{$\Discharge{a = c'}{6} \quad \eq[(b'+a)][\Obj 0]$}
-  \RightLabel{$\delta_5$}
+  \RightLabel{$\delta_4$}
   \DeduceC{$\lfalse$}
   \DischargeRule{\Elim\exists}{6}
   \BinaryInfC{$\lfalse$}
@@ -201,20 +179,25 @@ applying $\Elim\lexists$ and discharging the assumption $\eq[a][c']$:
 Putting everything together, the full proof looks like this:
 \begin{prooftree}\footnotesize
   \AxiomC{$\Discharge{\lexists[z][(z' + a) = \Obj 0]}{2}$}
-  \AxiomC{}
-  \RightLabel{$\delta_3$}
-  \DeduceC{$a = 0 \lor \lexists[y][(a = y')]$}
   \AxiomC{$\begin{gathered}
+  \lforall[x][(x = 0 \lor {}]\\
+  \lexists[y][(a = y')])
+  \end{gathered}$}
+  \RightLabel{\Elim\lforall}
+  \UnaryInfC{$\begin{gathered}a = 0 \lor {}\\
+  \lexists[y][(a = y')]
+  \end{gathered}$}
+  \AxiomC{$\begin{gathered}[b]
       \Discharge{a = \Obj 0}{7} \\
       \Discharge{(b'+a) = \Obj 0}{3}
       \end{gathered}$}
-    \RightLabel{$\delta_4$}
+    \RightLabel{$\delta_3$}
     \DeduceC{$\lfalse$}
-    \AxiomC{$\begin{gathered}
+    \AxiomC{$\begin{gathered}[b]
         \Discharge{\lexists[y][a=y']}{7} \\
         \Discharge{(b'+a) = \Obj 0}{3}
         \end{gathered}$\quad}
-    \RightLabel{$\delta_6$}
+    \RightLabel{$\delta_5$}
     \DeduceC{$\lfalse$}
     \DischargeRule{\Elim\lor}{7}
     \insertBetweenHyps{\hskip -.5em}
@@ -251,7 +234,7 @@ if $\Th{T} \Proves \lnot !R$.
 
 \begin{proof}[Proof of {\olref[inc][inp][ros]{thm:rosser}}]
 First we prove something things about~$<$. By
-\olref[inc][req][min]{lem:less}, we know that $\Th{Q} \Proves
+\olref[inc][req][min]{lem:less-nsucc}, we know that $\Th{Q} \Proves
 \lforall[x][(x < \num {n+1} \lif (\eq[x][\Obj 0] \lor \dots \lor
   \eq[x][\num n]))]$ for every~$n$. So of course also (if $n>1$),
 $\Th{Q} \Proves \lforall[x][(x < \num {n} \lif (\eq[x][\Obj 0] \lor
@@ -335,23 +318,24 @@ not a G\"odel number of a derivation of~$!R$, and hence $\Th{Q} \Proves \lnot
   \RightLabel{$\lambda_2$}
   \DeduceC{$\begin{gathered}[b] a = \num{0} \lor \dots \lor\\
       a = \num{m} \lor \num{m} < a\end{gathered}$}
-  \AxiomC{\dots}
+  \AxiomC{$\dots$}
   \AxiomC{$\begin{gathered}\Discharge{\OPrf(a, \gn{!R})}{1}\\
     \Discharge{a = \num{k}}{2}\end{gathered}$}
   \RightLabel{$\pi_k'$}
   \DeduceC{$\lfalse$}
   \RightLabel{$\lfalse_I$}
   \UnaryInfC{$\num{m}<a$}
-  \AxiomC{\dots}
+  \AxiomC{$\dots$}
   \AxiomC{$\Discharge{\num{m} < a}{2}$}
   \DischargeRule{$\Elim\lor^*$}{2}
-  \insertBetweenHyps{\hskip 5pt}
+  \insertBetweenHyps{\hspace{-.1em}}
   \doubleLine
   \QuinaryInfC{$\num{m} < a$}
   \AxiomC{}
   \RightLabel{$\rho_1$}
   \DeduceC{$\ORefut(\num{m}, \gn{!R})$}
   \RightLabel{\Intro\land}
+    \insertBetweenHyps{\hspace{-.1em}}
   \BinaryInfC{$\num{m}
     < a \land \ORefut(\num{m}, \gn{!R})$}
   \RightLabel{\Intro\exists}
@@ -382,37 +366,45 @@ and $\lambda_2$ is
 \begin{prooftree}\footnotesize
   \AxiomC{}
   \RightLabel{$\lambda_3$}
-  \DeduceC{$\begin{gathered}[b]a < \num{m} \lor \\a = \num{m} \lor\\ \num{m} < a\end{gathered}$}
+  \DeduceC{$\begin{gathered}[b](a < \num{m} \lor {}\\a = \num{m}) \lor {}\\ \num{m} < a\end{gathered}$}
 
   \AxiomC{$\Discharge{a < \num{m}}{3}$}
   \RightLabel{$\lambda_1$}
-  \DeduceC{$a = \num{0} \lor \dots \lor a = \num{m-1}$}
-  \RightLabel{\Intro\lor}
+  \DeduceC{$\begin{gathered}[b]a = \num{0} \lor \dots \lor {}\\
+  a = \num{m-1}\end{gathered}$}
+  %\RightLabel{\Intro\lor}
+  \doubleLine
   \UnaryInfC{$\begin{gathered}[b]
       a = \num{0} \lor \dots \lor \\
       a = \num{m} \lor \num{m} < a
     \end{gathered}$}
 
   \AxiomC{$\Discharge{a = \num{m}}{3}$}
-  \RightLabel{\Intro\lor}
+  %\RightLabel{\Intro\lor}
+  \doubleLine
   \UnaryInfC{$\begin{gathered}[b]
       a = \num{0} \lor \dots \lor \\
       a = \num{m} \lor \num{m} < a
     \end{gathered}$}
   
   \AxiomC{$\Discharge{\num{m} < a}{3}$}
-  \RightLabel{\Intro\lor}
+  \doubleLine
+  \RightLabel{$\Intro\lor^*$}
   \UnaryInfC{$\begin{gathered}[b]
       a = \num{0} \lor \dots \lor \\
       a = \num{m} \lor \num{m} < a
     \end{gathered}$}
 
-  \insertBetweenHyps{\hskip 5pt}
+  %\insertBetweenHyps{\hskip 5pt}
   \doubleLine
-  \DischargeRule{$\Elim\lor^*$}{3}
+  \DischargeRule{$\Elim\lor^2$}{3}
   \QuaternaryInfC{$a = \num{0} \lor \dots \lor a = \num{m} \lor \num{m} < a$}
 \end{prooftree}
-(The derivation $\lambda_3$ exists by \olref[inc][req][min]{lem:trichotomy}.)
+(The derivation $\lambda_3$ exists by
+\olref[inc][req][min]{lem:trichotomy}. We abbreviate repeated use of
+$\Intro\lor$ by $\Intro\lor^*$ and the double use of $\Elim\lor$ to
+derive $a = \num{0} \lor \dots \lor a = \num{m} \lor \num{m} < a$ from
+$(a < \num{m} \lor a = \num{m}) \lor \num{m} < a$ as $\Elim\lor^2$.)
 \end{proof}
 
 \OLEndChapterHook
