@@ -4,7 +4,7 @@
 When we showed that all general recursive functions are representable
 in~$\Th{Q}$, and in the proofs of the incompleteness theorems, we
 claimed that various things are provable in $\Th{Q}$ and~$\Th{PA}$. The
-proofs of this claims, however, just gave the arguments informally
+proofs of these claims, however, just gave the arguments informally
 without exhibiting actual derivations in natural deduction. We provide
 some of these derivations in this capter.
 
@@ -22,20 +22,21 @@ that $\Th{Q} \Proves (\num{n} + \Obj 0) = \num{n}$. The derivation
   \RightLabel{\Elim\lforall}
   \UnaryInfC{$(\num{n} + \Obj 0) = \num{n}$}
 \end{prooftree}
-is a natural deduction derivation with one undischarged assumption,
-and that undischarged assumption is an axiom of~$\Th{Q}$.
+is a natural deduction derivation of $(\num{n} + \Obj 0) = \num{n}$
+with one undischarged assumption, and that undischarged assumption is
+an axiom of~$\Th{Q}$.
 
 Inductive step: Suppose that, for any $n$, $\Th{Q} \Proves (\num{n} +
-\num{m}) = \num{n+m}$ (say, by a derivation $\delta_n$). We have to show
-that also $\Th{Q} \Proves (\num{n} + \num{m+1}) = \num{n+m+1}$. Note
-that $\num{m+1}$ is the same as $\num{m}'$, and that $\num{n+m+1}$ is
-the same as $\num{n+m}'$. So we are looking for a derivation of
-$(\num{n} + \num{m}') = \num{n+m}'$ from the axioms of $\Th{Q}$. Our
-derivation may use the derivation $\delta_n$ which exists by inductive
+\num{m}) = \num{n+m}$ (say, by a derivation $\delta_{n,m}$). We have
+to show that also $\Th{Q} \Proves (\num{n} + \num{m+1}) =
+\num{n+m+1}$. Note that $\num{m+1} \ident \num{m}'$, and that
+$\num{n+m+1} \ident \num{n+m}'$. So we are looking for a derivation of
+$(\num{n} + \num{m}') = \num{n+m}'$ from the axioms of~$\Th{Q}$. Our
+derivation may use the derivation $\delta_{n,m}$ which exists by inductive
 hypothesis.
 \begin{prooftree}
   \AxiomC{}
-  \RightLabel{$\delta_n$}
+  \RightLabel{$\delta_{n,m}$}
   \DeduceC{$(\num{n} + \num{m}) = \num{n+m}$}
   \AxiomC{$\lforall[x][\lforall[y][(x+y') = (x+y)']]$}
   \RightLabel{\Elim\lforall}
@@ -45,6 +46,9 @@ hypothesis.
     \RightLabel{\Elim=}
     \BinaryInfC{$(\num{n}+\num{m}') = \num{n+m}'$}
 \end{prooftree}
+In the last $\Elim=$ inference, we replace the subterm $\num{n} +
+\num{m}$ of the right side $(\num{n} + \num{m})'$ of the right premise
+by the term $\num{n+m}$.
 \end{proof}
 
 In \olref[inc][req][min]{lem:less-zero}, we showed that $\Th{Q} \Proves
@@ -52,9 +56,9 @@ In \olref[inc][req][min]{lem:less-zero}, we showed that $\Th{Q} \Proves
 
 \begin{proof}[Proof of {\olref[inc][req][min]{lem:less-zero}}]
 To prove a universal claim like this, we use $\Intro\lforall$, which
-requires a derivation of $\lnot a < \Obj 0$. Looking at axiom $Q_8$,
+requires a derivation of $\lnot a < \Obj 0$. Looking at axiom $!Q_8$,
 this means proving $\lnot \exists z (z' + a) = \Obj 0$. Specifically,
-if we had a proof of the latter, $Q_8$ would allow us to prove the
+if we had a proof of the latter, $!Q_8$ would allow us to prove the
 former (recall that $A \liff B$ is short for $(A \lif B) \land (B \lif
 A)$.
 \begin{prooftree}\footnotesize
@@ -75,10 +79,10 @@ A)$.
   \DischargeRule{\Intro\lnot}{1}
   \UnaryInfC{$\lnot a<\Obj 0$}
 \end{prooftree}
-This is a derivation of $\lnot a<\Obj 0$ from
-$\lnot\lexists[z][(z' + a) = \Obj 0]$ (and~$Q_8$); let's call it~$\delta_1$
+This is a derivation of $\lnot a<\Obj 0$ from $\lnot\lexists[z][(z' +
+a) = \Obj 0]$ (and~$!Q_8$); let's call it~$\delta_1$.
 
-Ok, so how to prove $\lnot\lexists[z][(z' + a) = \Obj 0]$ from the
+Now how do we prove $\lnot\lexists[z][(z' + a) = \Obj 0]$ from the
 axioms of~$\Th{Q}$? To prove a negated claim like this, we'd need a
 derivation of the form
 \begin{prooftree}
@@ -87,8 +91,8 @@ derivation of the form
   \DischargeRule{\Intro\lnot}{2}
   \UnaryInfC{$\lnot\lexists[z][(z' + a) = \Obj 0]$}
   \end{prooftree}
-How do we get a contradiction from an existential claim? We introduce
-a constant for the existentially quantified variable and use
+To get a contradiction from an existential claim, we introduce a
+constant~$b$ for the existentially quantified variable~$z$ and use
 \Elim\lexists:
 \begin{prooftree}
   \AxiomC{$\Discharge{\lexists[z][(z' + a) = \Obj 0]}{2}$}
@@ -129,6 +133,7 @@ Case 1: Prove $\lfalse$ from $\eq[a][\Obj 0]$ and $\eq[(b'+a)][\Obj
   \AxiomC{$(b'+a) = \Obj 0$}
   \RightLabel{\Elim=}
   \BinaryInfC{$(b' + \Obj 0) = \Obj 0$}
+  \doubleLine
   \UnaryInfC{$\Obj 0 = (b' + \Obj 0)$}
       \insertBetweenHyps{\hskip -.5em}
   \RightLabel{\Elim=}
@@ -300,7 +305,7 @@ $\ORProv(\gn{!R})$:
 \end{prooftree}
 (We abbreviate multiple applications of $\Elim\lor$ by $\Elim\lor^*$
 above.)  We've shown that if $\Th{T} \Proves !R$ there would be a
-derivation of~$\ORProv(\Gn{!R})$.  Then, since $\Th{T} \Proves R \liff
+derivation of~$\ORProv(\gn{!R})$.  Then, since $\Th{T} \Proves R \liff
 \lnot \ORProv(\gn{!R})$, also $\Th{T} \Proves \ORProv(\gn{!R}) \lif
 \lnot R$, we'd have $\Th{T} \Proves \lnot !R$ and $\Th{T}$ would be
 inconsistent.
@@ -309,9 +314,9 @@ Now let's show that $\Th{T} \Proves/ \lnot !R$. Again, suppose it
 did. Then there is a derivation $\rho$ of $\lnot !R$ with G\"odel
 number $m$---a refutation of~$!R$---and so $\Th{Q} \Proves
 \ORefut(\num{m}, \gn{!R})$ by a derivation~$\rho_1$. Since we assume
-$\Th{T}$ is consistent, $\Th{T} \Proves/ !R$, and so for all $k$, $k$ is
+$\Th{T}$ is consistent, $\Th{T} \Proves/ !R$. So for all $k$, $k$ is
 not a G\"odel number of a derivation of~$!R$, and hence $\Th{Q} \Proves \lnot
-\OPrf(\num{k}, \gn{!R})$ by a derivation $\pi_k$. So we have:
+\OPrf(\num{k}, \gn{!R})$ by a derivation~$\pi_k$. So we have:
   
 \begin{prooftree}\footnotesize
   \AxiomC{}

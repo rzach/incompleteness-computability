@@ -30,11 +30,11 @@ symbols are interpreted by functions and relation symbols by relation
 on the domain. A function from the set of variables to the domain is
 a \emph{variable assignment}. The relation of \emph{satisfaction}
 relates structures, variable assignments and formulas;
-$\Sat{M}[s]{!A}$ is defined by induction on the structure of~$!A$.
-$\Sat{M}[s]{!A}$ only depends on the interpretation of the symbols
+$\Sat{M}{!A}[s]$ is defined by induction on the structure of~$!A$.
+$\Sat{M}{!A}[s]$ only depends on the interpretation of the symbols
 actually occurring in~$!A$, and in particular does not depend on $s$
 if $!A$ contains no free variables. So if $!A$ is a sentence,
-$\Sat{M}{!A}$ if $\Sat{M}[s]{!A}$ for any (or all)~$s$.
+$\Sat{M}{!A}$ if $\Sat{M}{!A}[s]$ for any (or all)~$s$.
 
 The satisfaction relation is the basis for all semantic notions. A
 sentence is \emph{valid}, $\Sat{{}}{!A}$, if it is satisfied in every
