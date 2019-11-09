@@ -13,7 +13,7 @@
 
 \OLPfrontmatter
 
-%\input{include/preface}
+\input{include/preface}
 
 \mainmatter
 
@@ -27,7 +27,7 @@
 
 \olimport*[incompleteness/incompleteness-provability]{incompleteness-provability}
 
-\chapter{Models of Arithmetic}
+\chapter{Models of Arithmetic}\label{mod:chap}
 
 \olimport*[model-theory/models-of-arithmetic]{introduction}
 
@@ -84,7 +84,7 @@
 
 \OLEndChapterHook
 
-\chapter{The Lambda Calculus}
+\chapter{The Lambda Calculus}\label{lambda:chap}
 
 \olimport*[lambda-calculus/introduction]{overview}
 
@@ -117,10 +117,12 @@
 
 \appendix
 
+\input{ic-derivations}\label{deriv:chap}
+
 \let\intro\comment
 \let\endintro\endcomment
 
-\chapter{First-order Logic}
+\chapter{First-order Logic}\label{fol:chap}
 
 \olimport*[first-order-logic/syntax-and-semantics]{first-order-languages}
 
@@ -202,7 +204,7 @@ The third axiom is an \emph{explicit definition} of~$<$.
 
 \OLEndChapterHook
 
-\chapter{Natural Deduction}
+\chapter{Natural Deduction}\label{nd:chap}
 
 \olimport*[first-order-logic/proof-systems]{natural-deduction}[\nosection]
 
@@ -224,14 +226,12 @@ The third axiom is an \emph{explicit definition} of~$<$.
 
 \OLEndChapterHook
 
-\input{ic-derivations}
-
 \stopproblems
 \def\ifproblems#1{}
 
 \def\figurename{Fig.}
 
-\chapter{Biographies}
+\chapter{Biographies}\label{bios:chap}
 
 \olimport*[history/biographies]{alonzo-church}
 
