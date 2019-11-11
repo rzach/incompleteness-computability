@@ -15,11 +15,11 @@ Text](https://github.com/OpenLogicProject/OpenLogic/)_.
 
 You can [download the
 PDF](https://ic.openlogicproject.org/ic-screen.pdf) from the [Open
-Logic builds site](https://builds.openlogicproject.org/), or order a
-hardcopy from [Amazon](https://www.amazon.com/dp/1548138088/)
-[[CA](https://www.amazon.ca/dp/1548138088/)]
-[[UK](https://www.amazon.co.uk/dp/1548138088/)]
-[[DE](https://www.amazon.de/dp/1548138088/)].
+Logic builds site](https://ic.openlogicproject.org/), or order a
+hardcopy from Amazon [[US](https://www.amazon.com/dp/1077323395)]
+[[CA](https://www.amazon.ca/dp/1077323395)]
+[[UK](https://www.amazon.co.uk/dp/1077323395)]
+[[DE](https://www.amazon.de/dp/1077323395)].
 
 To install and compile:
 
