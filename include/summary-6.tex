@@ -1,53 +1,38 @@
-A \textbf{model of arithmetic} is !!a{structure} for the
-language~$\Lang{L_A}$ of arithmetic.  There is one distinguished such
-model, the \textbf{standard model}~$\Struct{N}$, with $\Domain{N}
-= \Nat$ and interpretations of $\Obj 0$, $\prime$, $+$, $\times$, and
-$<$ given by $0$, the successor, addition, and multiplication
-functions on~$\Nat$, and the less-than relation. $\Struct{N}$ is a
-model of the theories $\Th{Q}$ and~$\Th{PA}$.
+The \textbf{partial recursive functions} are those that can be defined
+from the basic functions $\Zero$, $\Succ$, $\Proj{i}{j}$ using
+composition, primitive recursion, and unbounded search. Such
+definitions can themselves be encoded as numbers. When a suitable
+coding is fixed and a partial recursive function~$f$ has code~$e$ we
+call $e$ an \textbf{index} of~$f$ and denote $f$ also by~$\cfind{e}$.
+Not just definitions of functions, but also computations of functions
+applied to arguments can be coded as numbers. The property of deciding
+whether $s$ codes the computation of $\cfind{e}$ applied to argument
+$x$, $T(e, x, s)$, and the function that given a code~$s$ of a
+computation as input returns the output of that computation, $U(s)$,
+are both primitive recursive. Thus, we have $\cfind{e}(x) \simeq
+U(\umin{s}{T(e,x,s)})$. This is the \textbf{Kleene normal form
+theorem}.
 
-More generally, !!a{structure} for $\Lang{L_A}$ is
-called \textbf{standard} iff it is isomorphic to~$\Struct{N}$. Two
-!!{structure}s are isomorphic if there is an \textbf{isomorphism}
-between them, i.e., !!a{bijective} function which preserves the
-interpretations of !!{constant}s, !!{function}s, and !!{predicate}s.
-By the \textbf{isomorphism theorem}, isomorphic structures
-are \textbf{elementarily equivalent}, i.e., they make the same
-sentences true.  In standard models, the domain is just the set of
-values of all the numerals~$\num{n}$.
+The Kleene noremal form theorem actually applies not just to partial
+recursive functions, but to any known model of computability. E.g., it
+is also true for Turing machines that their definitions and
+computations can be coded as numbers in such a way that the Kleene
+normal form theorem holds. The indexing of partial computable
+functions via the Kleene normal form theorem thus enables a very
+general investigation of computable functions. This area of research is
+called \textbf{computability theory}. Among its results are that there
+is a universal two-place partial recursive function~$\fn{Un}$ such
+that $\fn{Un}(e,x) \simeq \cfind{e}(x)$, that there is no total
+universal computable function, and that the question whether
+$\cfind{e}(x)$ is defined is undecidable (the \textbf{Halting
+problem}). The \textbf{self-halting set}~$K = \Setabs{e}{\cfind{e}(e)
+\text{ is defined}}$ is another example of a set of natural numbers
+that is undecidable. It is \textbf{computably enumerable}, however,
+i.e., it is the range of a computable function.
 
-Models of $\Th{Q}$ and $\Th{PA}$ that are not isomorphic
-to~$\Struct{N}$ are called \textbf{non-standard}. In non-standard
-models, the domain is not exhausted by the values of the numerals.  An
-element $x \in \Domain{M}$ where $x \neq \Value{\num{n}}{M}$ for
-all~$n \in \Nat$ is called a \textbf{non-standard element}
-of~$\Struct{M}$.  If $\Sat{M}{\Th{Q}}$, non-standard elements must
-obey the axioms of~$\Th{Q}$, e.g., they have unique successors, they
-can be added and multiplied, and compared using~$<$. The standard
-elements of~$\Struct{M}$ are all $\Assign{<}{M}$ all the non-standard
-elements.  Non-standard models exist because of the compactness
-theorem, and for $\Th{Q}$ they can relatively easily be given
-explicitly. Such models can be used to show that, e.g., $\Th{Q}$ is
-not strong enough to prove certain !!{sentence}s, e.g.,
-$\Th{Q} \Proves/ \lforall[x][\lforall[y][\eq[(x+y)][(y+x)]]]$. This is
-done by defining a non-standard $\Struct{M}$ in which non-standard
-elements don't obey the law of commutativity.
-
-Non-standard models of~$\Struct{PA}$ cannot be so easily specified
-explicitly. By showing that $\Th{PA}$ proves certain sentences, we can
-investigate the structure of the non-standard part of a non-standard
-model of~$\Th{PA}$. If a non-standard model~$\Struct{M}$ of~$\Th{PA}$
-is !!{enumerable}, every non-standard element is part of a ``block''
-of non-standard elements which are ordered like~$\Int$
-by~$\Assign{<}{M}$.  These blocks themselves are arranged like~$\Rat$,
-i.e., there is no smallest or largest block, and there is always a
-block in between any two blocks.
-
-Any !!{enumerable} model is isomorphic to one with domain~$\Nat$. If
-the interpretations of $\prime$, $+$, $\times$, and $<$ in such a
-model are computable functions, we say it is a \textbf{computable
-model}. The standard model~$\Struct{N}$ is computable, since the
-successor, addition, and multiplication functions and the less-than
-relation on~$\Nat$ are computable. It is possible to define computable
-non-standard models of~$\Th{Q}$, but $\Struct{N}$ is the only
-computable model of~$\Th{PA}$. This is \textbf{Tannenbaum's Theorem}.
+Via G\"odel numbering, computability theory can be used to give very
+general formulations of G\"odel's theorems about undecidability and
+incompleteness of theories. We can prove, using results from
+computability theory, that every $\omega$-consistent theory that
+represents all primitive recursive relations is undecidable, and that
+when such a theory is computably enumerable, it must be incomplete.

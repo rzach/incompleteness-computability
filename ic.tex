@@ -1,3 +1,5 @@
+% !TeX root = ic-screen.tex
+
 % ic.tex
 %
 % driver file ic.tex to produce text
@@ -27,6 +29,26 @@
 
 \olimport*[incompleteness/incompleteness-provability]{incompleteness-provability}
 
+\chapter{Computability and Incompleteness}\label{comp-inc:chap}
+
+\olimport*[computability/computability-theory]{introduction}
+\olimport*[computability/computability-theory]{coding-computations}
+\olimport*[computability/computability-theory]{normal-form}
+\olimport*[computability/computability-theory]{s-m-n}
+\olimport*[computability/computability-theory]{universal-part-function}
+\olimport*[computability/computability-theory]{no-universal-function}
+\olimport*[computability/computability-theory]{halting-problem}
+%\olimport*[computability/computability-theory]{russells-paradox}
+\olimport*[computability/computability-theory]{computable-sets}
+\olimport*[computability/computability-theory]{ce-sets}
+\olimport*[computability/computability-theory]{equiv-ce-defs}
+\olimport*[computability/computability-theory]{non-comp-set}
+\olimport*[computability/computability-theory]{complement-ce}
+\olimport[include]{ce-theories}
+\olimport[include]{g1-halting-problem}
+
+\OLEndChapterHook
+
 \chapter{Models of Arithmetic}\label{mod:chap}
 
 \olimport*[model-theory/models-of-arithmetic]{introduction}
@@ -49,7 +71,7 @@
 
 \OLEndChapterHook
 
-\chapter{Second-Order Logic}
+\chapter{Second-Order Logic}\label{sol:chap}
 
 \olimport*[second-order-logic/syntax-and-semantics]{introduction}
 
@@ -117,7 +139,7 @@
 
 \appendix
 
-\input{ic-derivations}\label{deriv:chap}
+\input{include/ic-derivations}
 
 \let\intro\comment
 \let\endintro\endcomment
@@ -227,6 +249,8 @@ The third axiom is an \emph{explicit definition} of~$<$.
 \olimport*[first-order-logic/natural-deduction]{soundness}
 
 \OLEndChapterHook
+
+%\olimport[additions]{computing-recursive}
 
 \stopproblems
 \def\ifproblems#1{}
