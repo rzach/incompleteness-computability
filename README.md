@@ -27,7 +27,7 @@ To install and compile:
   [GitHub](https://github.com/OpenLogicProject/OpenLogic/), including
   [photos](https://github.com/OpenLogicProject/photos) if you want those.
 - Navigate to the subdirectory `courses/`
-- Put the content of this repository into a subdirectory of it, say
+- Put the content of [this repository](https://github.com/rzach/incompleteness-computability) into a subdirectory of it, say
   `courses/incompleteness-computability`.
 
 If you use `git`, this should do it:
