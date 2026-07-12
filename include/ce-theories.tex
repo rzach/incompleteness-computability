@@ -31,7 +31,7 @@ of computation can handle !!{formula}s and proofs. The arithmetization of
 provability shows that models of computation that directly only apply
 to numbers can do this---via G\"odel numbering. Other models of
 computability may not require as much work, and can avoid all the
-trouble of coding sequences, !!{formula}s, and derivations we went through
+trouble of coding sequences, !!{formula}s, and !!{derivation}s we went through
 to show that $\Prf[\Th{T}]$ is primitive recursive. For instance, a
 suitably general notion of Turing machine would allow us to represent
 !!{formula}s and proofs directly as sequences of symbols by including
@@ -69,10 +69,10 @@ axiomatized by a decidable set of axioms~$\Gamma$. Then $\Th{T}$ is
   of symbols and !!{formula}s is a correct proof, e.g., testing whether
   a given putative application of an inference rule in natural deduction is
   correct is decidable. The assumption that $\Gamma$ is decidable
-  allows us to check if a correct derivation is a derivation
+  allows us to check if a correct !!{derivation} is !!a{derivation}
   \emph{from}~$\Gamma$. E.g., we can check, for each open assumption
-  of a natural deduction derivation, that it is an axiom in~$\Gamma$.
-  If a derivation passes these checks, we output the end-!!{formula}; it
+  of a natural deduction !!{derivation}, that it is an axiom in~$\Gamma$.
+  If !!a{derivation} passes these checks, we output the end-!!{formula}; it
   is a theorem of~$\Th{T}$.
 
   More formally, we can proceed as follows. If $\Gn{\Gamma}$ is
@@ -120,7 +120,7 @@ decidable (in fact, primitive recursive) set of axioms.
   More formally, we can proceed as follows. Let  $f(n) = \Gn{!A_n}$ be
   a primitive recursive enumeration of~$\Th{T}$. Verify that the
   functions~$i$ and $b$ such that $i(\Gn{A}) = n$ and $b(\Gn{A}) =
-  \Gn{B}$ are primitive recursive.  $!A \in \Gamma$ iff $b(\Gn{A}) =
+  \Gn{B}$ are primitive recursive. $!A \in \Gamma$ iff $b(\Gn{A}) =
   f(i(\Gn{A}))$. The latter expression defines a primitive recursive
   predicate.
 \end{proof}
@@ -128,7 +128,7 @@ decidable (in fact, primitive recursive) set of axioms.
 \begin{prob}
   Assume $f$ is a primitive recursive enumeration of some set of
   G\"odel numbers of !!{formula}s~$\Gamma$. Verify that the functions $b$
-  and $i$ in the proof of \olref{prop:ce-ax} are primitive recursive.
+  and~$i$ in the proof of \olref{prop:ce-ax} are primitive recursive.
 \end{prob}
 
 \end{document}

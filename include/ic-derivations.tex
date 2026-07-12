@@ -6,8 +6,8 @@ When we showed that all general recursive functions are representable
 in~$\Th{Q}$, and in the proofs of the incompleteness theorems, we
 claimed that various things are provable in $\Th{Q}$ and~$\Th{PA}$. The
 proofs of these claims, however, just gave the arguments informally
-without exhibiting actual derivations in natural deduction. We provide
-some of these derivations in this capter.
+without exhibiting actual !!{derivation}s in natural deduction. We provide
+some of these !!{derivation}s in this capter.
 
 For instance, in \olref[inc][req][bre]{lem:q-proves-add} we proved
 that, for all $n$ and $m \in \Nat$, $\Th{Q} \Proves (\num{n} +
@@ -17,23 +17,23 @@ that, for all $n$ and $m \in \Nat$, $\Th{Q} \Proves (\num{n} +
 Base case: $m = 0$. Then what has to be proved is that, for all $n$,
 $\Th{Q} \Proves \num{n} + \num{0} = \num{n+0}$. Since $\num{0}$ is
 just $\Obj 0$ and $\num{n+0}$ is $\num{n}$, this amounts to showing
-that $\Th{Q} \Proves (\num{n} + \Obj 0) = \num{n}$. The derivation
+that $\Th{Q} \Proves (\num{n} + \Obj 0) = \num{n}$. The !!{derivation}
 \begin{prooftree}
   \AxiomC{$\lforall[x][(x + \Obj 0) = x]$}
   \RightLabel{\Elim\lforall}
   \UnaryInfC{$(\num{n} + \Obj 0) = \num{n}$}
 \end{prooftree}
-is a natural deduction derivation of $(\num{n} + \Obj 0) = \num{n}$
+is a natural deduction !!{derivation} of $(\num{n} + \Obj 0) = \num{n}$
 with one undischarged assumption, and that undischarged assumption is
 an axiom of~$\Th{Q}$.
 
 Inductive step: Suppose that, for any $n$, $\Th{Q} \Proves (\num{n} +
-\num{m}) = \num{n+m}$ (say, by a derivation $\delta_{n,m}$). We have
+\num{m}) = \num{n+m}$ (say, by !!a{derivation} $\delta_{n,m}$). We have
 to show that also $\Th{Q} \Proves (\num{n} + \num{m+1}) =
 \num{n+m+1}$. Note that $\num{m+1} \ident \num{m}'$, and that
-$\num{n+m+1} \ident \num{n+m}'$. So we are looking for a derivation of
+$\num{n+m+1} \ident \num{n+m}'$. So we are looking for !!a{derivation} of
 $(\num{n} + \num{m}') = \num{n+m}'$ from the axioms of~$\Th{Q}$. Our
-derivation may use the derivation $\delta_{n,m}$ which exists by inductive
+!!{derivation}may use the !!{derivation} $\delta_{n,m}$ which exists by inductive
 hypothesis.
 \begin{prooftree}
   \AxiomC{}
@@ -53,11 +53,11 @@ by the term $\num{n+m}$.
 \end{proof}
 
 In \olref[inc][req][min]{lem:less-zero}, we showed that $\Th{Q} \Proves
-\lforall[x][\lnot x < \Obj 0]$. What does an actual derivation look like?
+\lforall[x][\lnot x < \Obj 0]$. What does an actual !!{derivation} look like?
 
 \begin{proof}[Proof of {\olref[inc][req][min]{lem:less-zero}}]
 To prove a universal claim like this, we use $\Intro\lforall$, which
-requires a derivation of $\lnot a < \Obj 0$. Looking at axiom $!Q_8$,
+requires !!a{derivation} of $\lnot a < \Obj 0$. Looking at axiom $!Q_8$,
 this means proving $\lnot \exists z (z' + a) = \Obj 0$. Specifically,
 if we had a proof of the latter, $!Q_8$ would allow us to prove the
 former (recall that $A \liff B$ is short for $(A \lif B) \land (B \lif
@@ -80,12 +80,12 @@ A)$.
   \DischargeRule{\Intro\lnot}{1}
   \UnaryInfC{$\lnot a<\Obj 0$}
 \end{prooftree}
-This is a derivation of $\lnot a<\Obj 0$ from $\lnot\lexists[z][(z' +
+This is !!a{derivation} of $\lnot a<\Obj 0$ from $\lnot\lexists[z][(z' +
 a) = \Obj 0]$ (and~$!Q_8$); let's call it~$\delta_1$.
 
 Now how do we prove $\lnot\lexists[z][(z' + a) = \Obj 0]$ from the
-axioms of~$\Th{Q}$? To prove a negated claim like this, we'd need a
-derivation of the form
+axioms of~$\Th{Q}$? To prove a negated claim like this, we'd need
+!!a{derivation} of the form
 \begin{prooftree}
   \AxiomC{$\Discharge{\lexists[z][(z' + a) = \Obj 0]}{2}$}
   \DeduceC{$\lfalse$}
@@ -142,7 +142,7 @@ Case 1: Prove $\lfalse$ from $\eq[a][\Obj 0]$ and $\eq[(b'+a)][\Obj
   \RightLabel{\Elim\lnot}
   \BinaryInfC{$\lfalse$}
 \end{prooftree}
-Call this derivation~$\delta_3$. (We've abbreviated the derivation of
+Call this !!{derivation}~$\delta_3$. (We've abbreviated the !!{derivation} of
 $\Obj 0 = (b' + \Obj 0)$ from $(b' + \Obj 0) = \Obj 0$ by a double
 inference line.)
 
@@ -170,7 +170,7 @@ derive $\lfalse$ from $\eq[a][c']$ and $\eq[(b'+a)][\Obj 0]$.
           \insertBetweenHyps{\hskip -.5em}
   \BinaryInfC{$\lfalse$}
 \end{prooftree}
-Call this $\delta_4$. We get the required derivation $\delta_5$ by
+Call this $\delta_4$. We get the required !!{derivation} $\delta_5$ by
 applying $\Elim\lexists$ and discharging the assumption $\eq[a][c']$:
 \begin{prooftree}
   \AxiomC{$\lexists[y][a=y']$}
@@ -257,17 +257,17 @@ $\eq[a][\Obj 0] \lor \dots \lor \eq[a][\num{n-1}]$ from $a < \num{n}$:
   \RightLabel{\Elim\lif}
   \BinaryInfC{$a = \num{0} \lor \dots \lor a = \num{n-1}$}
 \end{prooftree}
-Let's call this derivation $\lambda_1$.
+Let's call this !!{derivation} $\lambda_1$.
 
 Now, to show that $\Th{T} \Proves/ !R$, we assume that $\Th{T}
-\Proves !R$ (with a derivation~$\delta$) and show that $\Th{T}$ then
+\Proves !R$ (with !!a{derivation}~$\delta$) and show that $\Th{T}$ then
 would be inconsistent. Let $n$ be the G\"odel number
 of~$\delta$. Since $\OPrf$ represents the proof relation in~$\Th{Q}$,
-there is a derivation~$\delta_1$ of $\OPrf(\num{n},
+there is !!a{derivation}~$\delta_1$ of $\OPrf(\num{n},
 \gn{!R})$. Furthermore, no $k < n$ is the G\"odel number of a
 refutation of~$!R$ since $\Th{T}$ is assumed to be consistent, so for
 each $k < n$, $\Th{Q} \Proves \lnot \ORefut(\num{k}, \gn{!R})$; let
-$\rho_k$ be the corresponding derivation. We get a derivation of
+$\rho_k$ be the corresponding !!{derivation}. We get !!a{derivation} of
 $\ORProv(\gn{!R})$:
 \begin{prooftree}\footnotesize
   \AxiomC{}
@@ -305,19 +305,19 @@ $\ORProv(\gn{!R})$:
   \UnaryInfC{$\lexists[x][(\OPrf(x, \gn{!R}) \land \lforall[z][(z < x \lif \lnot \ORefut(z, \gn{!R}))])]$}
 \end{prooftree}
 (We abbreviate multiple applications of $\Elim\lor$ by $\Elim\lor^*$
-above.)  We've shown that if $\Th{T} \Proves !R$ there would be a
-derivation of~$\ORProv(\gn{!R})$.  Then, since $\Th{T} \Proves R \liff
+above.)  We've shown that if $\Th{T} \Proves !R$ there would be
+!!a{derivation} of~$\ORProv(\gn{!R})$.  Then, since $\Th{T} \Proves R \liff
 \lnot \ORProv(\gn{!R})$, also $\Th{T} \Proves \ORProv(\gn{!R}) \lif
 \lnot R$, we'd have $\Th{T} \Proves \lnot !R$ and $\Th{T}$ would be
 inconsistent.
 
 Now let's show that $\Th{T} \Proves/ \lnot !R$. Again, suppose it
-did. Then there is a derivation $\rho$ of $\lnot !R$ with G\"odel
+did. Then there is !!a{derivation} $\rho$ of $\lnot !R$ with G\"odel
 number $m$---a refutation of~$!R$---and so $\Th{Q} \Proves
-\ORefut(\num{m}, \gn{!R})$ by a derivation~$\rho_1$. Since we assume
+\ORefut(\num{m}, \gn{!R})$ by !!a{derivation}~$\rho_1$. Since we assume
 $\Th{T}$ is consistent, $\Th{T} \Proves/ !R$. So for all $k$, $k$ is
-not a G\"odel number of a derivation of~$!R$, and hence $\Th{Q} \Proves \lnot
-\OPrf(\num{k}, \gn{!R})$ by a derivation~$\pi_k$. So we have:
+not a G\"odel number of !!a{derivation} of~$!R$, and hence $\Th{Q} \Proves \lnot
+\OPrf(\num{k}, \gn{!R})$ by !!a{derivation}~$\pi_k$. So we have:
   
 \begin{prooftree}\footnotesize
   \AxiomC{}
@@ -356,7 +356,7 @@ not a G\"odel number of a derivation of~$!R$, and hence $\Th{Q} \Proves \lnot
   \DeduceC{$\lnot\exists x(\OPrf(x, \gn{!R}) \land \forall z(z
     < x \lif \lnot \ORefut(z, \gn{!R})))$}
 \end{prooftree}
-where $\pi_k'$ is the derivation
+where $\pi_k'$ is the !!{derivation}
 \begin{prooftree}
   \AxiomC{}
   \RightLabel{$\pi_k$}
@@ -406,7 +406,7 @@ and $\lambda_2$ is
   \DischargeRule{$\Elim\lor^2$}{3}
   \QuaternaryInfC{$a = \num{0} \lor \dots \lor a = \num{m} \lor \num{m} < a$}
 \end{prooftree}
-(The derivation $\lambda_3$ exists by
+(The !!{derivation} $\lambda_3$ exists by
 \olref[inc][req][min]{lem:trichotomy}. We abbreviate repeated use of
 $\Intro\lor$ by $\Intro\lor^*$ and the double use of $\Elim\lor$ to
 derive $a = \num{0} \lor \dots \lor a = \num{m} \lor \num{m} < a$ from
